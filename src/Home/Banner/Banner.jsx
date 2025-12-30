@@ -48,13 +48,13 @@ const Banner = () => {
             <div className="stat-desc">Jan 1st - Dec 31</div>
           </div>
         </div>
-        <div className="mx-auto w-2/12 mt-3">
-          <NavLink >
-            <button className="btn bg-green-600 hover:bg-base-100 text-">
-              Buy Ticket Now
-            </button>
-          </NavLink>
-        </div>
+      </div>
+      <div className="mt-3 ">
+        <NavLink className='w-full flex justify-center items-center'>
+          <button className="btn bg-green-600 hover:bg-base-100 text-3xl px-4 py-7">
+            Buy Ticket Now
+          </button>
+        </NavLink>
       </div>
     </div>
   );
