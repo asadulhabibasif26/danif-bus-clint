@@ -10,11 +10,11 @@ const Banner = () => {
           src={busBanner}
           alt="bus"
         />
-        <div className="  absolute top-50 left-50 text-black">
-          <h2 className="text-8xl font-bold text-yellow-600">Bangladesh</h2>
-          <h2 className="text-8xl font-bold "> InterCity </h2>
+        <div className="  absolute md:top-50 top-10 md:left-50 left-5 text-black">
+          <h2 className="md:text-8xl text-4xl font-bold text-yellow-600">Bangladesh</h2>
+          <h2 className="md:text-8xl text-4xl font-bold "> InterCity </h2>
           <div className="md:flex items-center">
-            <h2 className="text-8xl font-bold text-white"> Routes </h2>
+            <h2 className="md:text-8xl text-4xl font-bold text-white"> Routes </h2>
             <span className=" text-white md:pt-6 md:ml-2">Book Tickets Online And <br /> Travel With Ease <br />Around All Europe</span>
           </div>
         </div>
