@@ -8,9 +8,10 @@ const PopularRoute = () => {
   return (
     <div className="min-h-[500px] lg:w-8/12 w-10/12 bg-white/10 mt-10 mx-auto rounded-xl p-10">
       <h2 className="text-center font-bold">let’s ride together</h2>
-      <h2 className="text-center text-4xl font-bold">Popular destinations</h2>
+      <h2 className="text-center text-4xl font-bold pb-2">Popular destinations</h2>
+      <hr />
       <div className="mt-5">
-        <div className="grid grid-cols-3 w-10/12 mx-auto">
+        <div className="grid md:grid-cols-3 w-10/12 mx-auto">
           <div>
             <div className="avatar">
               <div className="ring-primary ring-offset-base-100 w-24 rounded-full ring-2 ring-offset-2">
@@ -59,14 +60,14 @@ const PopularRoute = () => {
             </ul>
           </div>
           <div className="">
-            <div className="avatar flex justify-center">
+            <div className="avatar md:flex justify-center">
               <div className="ring-primary ring-offset-base-100 w-24 rounded-full ring-2 ring-offset-2">
                 <img src={chittagong} />
               </div>
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-3 w-10/12 mx-auto">
+        <div className="grid md:grid-cols-3 py-3 border-y w-10/12 mx-auto">
           <div>
             <div className="avatar">
               <div className="ring-primary ring-offset-base-100 w-24 rounded-full ring-2 ring-offset-2">
@@ -115,14 +116,14 @@ const PopularRoute = () => {
             </ul>
           </div>
           <div>
-            <div className="avatar flex justify-center">
+            <div className="avatar md:flex justify-center">
               <div className="ring-primary ring-offset-base-100 w-24 rounded-full ring-2 ring-offset-2">
                 <img src={CoxsBazar} />
               </div>
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-3 w-10/12 mx-auto">
+        <div className="grid md:grid-cols-3 mt-3 w-10/12 mx-auto">
           <div>
             <div className="avatar">
               <div className="ring-primary ring-offset-base-100 w-24 rounded-full ring-2 ring-offset-2">
@@ -171,7 +172,7 @@ const PopularRoute = () => {
             </ul>
           </div>
           <div>
-            <div className="avatar flex justify-center">
+            <div className="avatar md:flex justify-center">
               <div className="ring-primary ring-offset-base-100 w-24 rounded-full ring-2 ring-offset-2">
                 <img src={Sylhet} />
               </div>
