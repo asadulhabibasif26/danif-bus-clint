@@ -28,7 +28,7 @@ const Banner = () => {
           </div>
         </div>
       </div>
-      <div className="mt-5">
+      <div className="mt-5 mx-auto md:w-10/12">
         <div className="md:flex shadow-2xl shadow-white mx-auto text-center  md:w-10/12 rounded-xl bg-gray-600">
           <div className="stat">
             <div className="stat-title">Total Bus Available</div>
@@ -49,9 +49,9 @@ const Banner = () => {
           </div>
         </div>
       </div>
-      <div className="mt-3 ">
+      <div className="mt-7">
         <NavLink className='w-full flex justify-center items-center'>
-          <button className="btn bg-white/40 text-green-300 hover:bg-base-100 text-3xl px-4 py-7">
+          <button className="btn rounded-2xl bg-white/20 text-green-300 hover:bg-base-100 text-3xl px-4 py-7">
             Buy Ticket Now
           </button>
         </NavLink>
