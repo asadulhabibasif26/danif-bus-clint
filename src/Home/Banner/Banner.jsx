@@ -1,6 +1,6 @@
 import React from "react";
 import busBanner from "../../assets/busImageBanner.jpg";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 
 const Banner = () => {
   return (
@@ -50,11 +50,11 @@ const Banner = () => {
         </div>
       </div>
       <div className="mt-7">
-        <NavLink className='w-full flex justify-center items-center'>
+        <Link to={'/store'} className='w-full flex justify-center items-center'>
           <button className="btn rounded-2xl bg-white/20 text-green-300 hover:bg-base-100 text-3xl px-4 py-7">
             Buy Ticket Now
           </button>
-        </NavLink>
+        </Link>
       </div>
     </div>
   );
