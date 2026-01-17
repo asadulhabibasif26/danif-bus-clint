@@ -1,11 +1,12 @@
 import React from "react";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 
 const Login = () => {
   const { singInGoogle, setUser } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handelGoogleSingIn = () => {
     singInGoogle()
@@ -23,7 +24,7 @@ const Login = () => {
           image: result.user.photoURL,
         };
         setUser(newUser);
-        navigate("/");
+        navigate(location?.state || "/");
       })
       .catch((error) => {
         console.log(error);
@@ -43,9 +44,9 @@ const Login = () => {
         <div className="card-body">
           <fieldset className="fieldset">
             <label className="label">Email</label>
-            <input type="email" className="input" placeholder="Email" />
+            <input disabled type="email" className="input" placeholder="Email" />
             <label className="label">Password</label>
-            <input type="password" className="input" placeholder="Password" />
+            <input disabled type="password" className="input" placeholder="Password" />
             <div>
               <a className="link link-hover">Forgot password?</a>
             </div>
@@ -55,7 +56,7 @@ const Login = () => {
                 <span className="font-bold text-blue-500">Register</span>
               </Link>
             </div>
-            <button className="btn btn-neutral mt-4">Login</button>
+            <button disabled className="btn btn-neutral mt-4">Login</button>
             <h2 className="text-center font-bold">Or</h2>
             <button
               onClick={handelGoogleSingIn}

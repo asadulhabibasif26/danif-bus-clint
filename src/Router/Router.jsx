@@ -1,9 +1,10 @@
 import { createBrowserRouter } from "react-router";
 import RootLayout from "../Layouts/RootLayout";
 import Home from "../Home/Home/Home";
-import Store from "../Pages/Store/Store";
 import Login from "../Auth/Login/Login";
 import Register from "../Auth/Register/Register";
+import PrivetRoute from "./PrivetRoute";
+import Store from "../Pages/Store/Store";
 
 
 export const router = createBrowserRouter([
@@ -17,7 +18,9 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/store',
-                Component: Store
+                element: <PrivetRoute>
+                    <Store></Store>
+                </PrivetRoute>
             },
             {
                 path: '/login',

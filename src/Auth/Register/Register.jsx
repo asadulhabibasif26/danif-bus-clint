@@ -1,11 +1,12 @@
 import React from "react";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 
 const Register = () => {
   const { singInGoogle, setUser } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handelGoogleSingIn = () => {
     singInGoogle()
@@ -23,7 +24,7 @@ const Register = () => {
           image: result.user.photoURL,
         };
         setUser(newUser);
-        navigate("/");
+        navigate(location?.state || "/");
       })
       .catch((error) => {
         console.log(error);
@@ -43,16 +44,16 @@ const Register = () => {
         <div className="card-body">
           <fieldset className="fieldset">
             <label className="label">Email</label>
-            <input type="email" className="input" placeholder="Email" />
+            <input disabled type="email" className="input" placeholder="Email" />
             <label className="label">Password</label>
-            <input type="password" className="input" placeholder="Password" />
+            <input disabled type="password" className="input" placeholder="Password" />
             <div>
               <Link to="/login" className="link link-hover">
                 I have an Account?{" "}
                 <span className="font-bold text-blue-500">LogIn</span>
               </Link>
             </div>
-            <button className="btn btn-neutral mt-4">Register</button>
+            <button disabled className="btn btn-neutral mt-4">Register</button>
             <h2 className="text-center font-bold">Or</h2>
             <button
               onClick={handelGoogleSingIn}
