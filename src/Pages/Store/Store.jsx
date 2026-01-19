@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { MdEventSeat } from "react-icons/md";
 import Swal from "sweetalert2";
+import useAuth from "../../hooks/useAuth";
+import { useNavigate } from "react-router";
 
 const Store = () => {
   const [selectedSeat, setSelectedSeat] = useState([]);
+  const {user} = useAuth();
+  const Navigate = useNavigate();
 
   const ticketSelect = (e) => {
     e.preventDefault();
@@ -25,6 +29,8 @@ const Store = () => {
 
   const handelSubmitTicket = (e) => {
     e.preventDefault();
+    const form = e.target;
+    
     if (totalTicket <= 0) {
       Swal.fire({
         icon: "error",
@@ -47,6 +53,7 @@ const Store = () => {
     }
     const passengerName = e.target.name.value;
     const passengerNumber = e.target.number.value;
+    const date = e.target.date.value;
 
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
@@ -72,15 +79,29 @@ const Store = () => {
             text: "Your Ticket has been confirm.",
             icon: "success",
           });
-          console.log(
-            passengerName,
-            passengerNumber,
-            totalTicket,
-            ticketPrice,
-            selectedSeat,
-            startFrome,
-            endTo
-          );
+          const ticket = {
+            name:passengerName,
+            number:passengerNumber,
+            totalTicket: totalTicket,
+            seat:selectedSeat,
+            price:ticketPrice,
+            destination: {startFrome , endTo},
+            date: date,
+            email:user.email
+          }
+          fetch('http://localhost:3000/tickets' , {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(ticket),
+          })
+          .then(res => res.json())
+          .then(data => {
+            console.log('after save data',data);
+          })
+          form.reset();
+          Navigate('/profile')
         } else if (
           /* Read more about handling dismissals below */
           result.dismiss === Swal.DismissReason.cancel
@@ -345,6 +366,7 @@ const Store = () => {
                       title="Enter valid 11 digit Bangladeshi mobile number"
                     />
                   </fieldset>
+                  <input name="date" type="date" className="input" />
                   <div className="flex justify-center mt-2">
                     <button type="submit" className="btn ">
                       Buy Now
