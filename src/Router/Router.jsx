@@ -5,6 +5,7 @@ import Login from "../Auth/Login/Login";
 import Register from "../Auth/Register/Register";
 import PrivetRoute from "./PrivetRoute";
 import Store from "../Pages/Store/Store";
+import Profile from "../Pages/Profile/Profile";
 
 
 export const router = createBrowserRouter([
@@ -29,6 +30,12 @@ export const router = createBrowserRouter([
             {
                 path: '/register',
                 Component: Register
+            },
+            {
+                path: '/profile',
+                element: <PrivetRoute>
+                    <Profile></Profile>
+                </PrivetRoute>
             }
         ]
     }

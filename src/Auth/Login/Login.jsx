@@ -25,6 +25,17 @@ const Login = () => {
         };
         setUser(newUser);
         navigate(location?.state || "/");
+        fetch("http://localhost:3000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(newUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log("after save data :", data);
+          });
       })
       .catch((error) => {
         console.log(error);
@@ -44,9 +55,19 @@ const Login = () => {
         <div className="card-body">
           <fieldset className="fieldset">
             <label className="label">Email</label>
-            <input disabled type="email" className="input" placeholder="Email" />
+            <input
+              disabled
+              type="email"
+              className="input"
+              placeholder="Email"
+            />
             <label className="label">Password</label>
-            <input disabled type="password" className="input" placeholder="Password" />
+            <input
+              disabled
+              type="password"
+              className="input"
+              placeholder="Password"
+            />
             <div>
               <a className="link link-hover">Forgot password?</a>
             </div>
@@ -56,7 +77,9 @@ const Login = () => {
                 <span className="font-bold text-blue-500">Register</span>
               </Link>
             </div>
-            <button disabled className="btn btn-neutral mt-4">Login</button>
+            <button disabled className="btn btn-neutral mt-4">
+              Login
+            </button>
             <h2 className="text-center font-bold">Or</h2>
             <button
               onClick={handelGoogleSingIn}
